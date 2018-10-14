@@ -9,7 +9,7 @@ MAINTAINER jake@gealer.email
 RUN apt-get update && apt-get install -y nginx php7.0 unzip
 # Installs nginx/PHP 7.x/unzip.
 
-WORKDIR /var/spherical
+WORKDIR /var/spherical_unpack
 COPY . .
 # Sets the work directory and copies everything there.
 
@@ -19,7 +19,7 @@ RUN wget https://captcha.com/bd4/botdetect-php-captcha-component-free.zip
 RUN unzip botdetect-php-captcha-component-free.zip
 # Unzips the BotDetect CAPTCHA library.
 
-RUN cp -R ./BotDetect-PHP-CAPTCHA-Component-Free-v4.2.3/lib/ "/var/spherical/BotDetect CAPTCHA Handler/botdetect/"
+RUN cp -R ./BotDetect-PHP-CAPTCHA-Component-Free-v4.2.3/lib/ "/var/spherical_unpack/BotDetect CAPTCHA Handler/botdetect/"
 # Copies BotDetect CAPTCHA into the folder where the PHP is.
 
 RUN rm -rf ./BotDetect-PHP-CAPTCHA-Component-Free-v4.2.3/ && rm ./botdetect-php-captcha-component-free.zip
