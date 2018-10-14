@@ -32,3 +32,6 @@ RUN mv "/var/spherical_unpack/Nginx Configs/php-captcha" /etc/nginx/sites-availa
 RUN ln -s /etc/nginx/sites-available/php-captcha /etc/nginx/sites-enabled/
 RUN service nginx reload
 # Adds the PHP CAPTCHA Nginx config.
+
+RUN mv "/var/Default Ceritificate" /var/spherical_cert
+# Moves the self-signed certificate into the certificate folder to be changed during setup.
