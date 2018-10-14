@@ -7,7 +7,7 @@ MAINTAINER jake@gealer.email
 # Sets me as a maintainer.
 
 RUN apt-get update && apt-get install -y nginx php7.0 unzip
-# Installs nginx/PHP 7.x.
+# Installs nginx/PHP 7.x/unzip.
 
 WORKDIR /var/spherical
 COPY . .
