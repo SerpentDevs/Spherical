@@ -4,9 +4,6 @@
     require("botdetect/simple-botdetect.php");
     // Requires the BotDetect library.
 
-    $data_split = explode("|", $_GET['data']);
-    // Splits the data.
-
     $input = $_GET['input'];
     $id = $_GET['id'];
     // Gets the input and the captcha ID.
