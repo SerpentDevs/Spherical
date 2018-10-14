@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y nginx php7.0 unzip
 # Installs nginx/PHP 7.x/unzip.
 
 WORKDIR /var/spherical_unpack
-COPY . .
+RUN git clone git://github.com/SerpentDevs/Spherical /var/spherical_unpack
 # Sets the work directory and copies everything there.
 
 RUN wget https://captcha.com/bd4/botdetect-php-captcha-component-free.zip
