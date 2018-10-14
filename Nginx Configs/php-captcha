@@ -1,0 +1,11 @@
+server {
+    listen 8000 default_server;
+    root /var/spherical_captcha_php;
+    index index.html index.htm;
+    server_name 127.0.0.1;
+    location / {
+        allow 127.0.0.1;
+        deny all;
+        try_files $uri $uri/ =404;
+    }
+}

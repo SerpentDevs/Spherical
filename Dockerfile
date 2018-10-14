@@ -27,3 +27,8 @@ RUN rm -rf ./BotDetect-PHP-CAPTCHA-Component-Free-v4.2.3/ && rm ./botdetect-php-
 
 RUN mv "/var/spherical_unpack/BotDetect CAPTCHA Handler/" /var/spherical_captcha_php
 # Moves the CAPTCHA handler into the correct folder.
+
+RUN mv "/var/spherical_unpack/Nginx Configs/php-captcha" /etc/nginx/sites-available/php-captcha
+RUN ln -s /etc/nginx/sites-available/php-captcha /etc/nginx/sites-enabled/
+RUN service nginx reload
+# Adds the PHP CAPTCHA Nginx config.
