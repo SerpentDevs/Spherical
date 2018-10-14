@@ -19,8 +19,11 @@ RUN wget https://captcha.com/bd4/botdetect-php-captcha-component-free.zip
 RUN unzip botdetect-php-captcha-component-free.zip
 # Unzips the BotDetect CAPTCHA library.
 
-RUN cp -R ./BotDetect-PHP-CAPTCHA-Component-Free-v4.2.3/lib/ "/var/spherical_unpack/BotDetect CAPTCHA Handler/botdetect/"
-# Copies BotDetect CAPTCHA into the folder where the PHP is.
+RUN mv ./BotDetect-PHP-CAPTCHA-Component-Free-v4.2.3/lib/ "/var/spherical_unpack/BotDetect CAPTCHA Handler/botdetect/"
+# Moves BotDetect CAPTCHA into the folder where the PHP is.
 
 RUN rm -rf ./BotDetect-PHP-CAPTCHA-Component-Free-v4.2.3/ && rm ./botdetect-php-captcha-component-free.zip
 # Deletes the garbage files.
+
+RUN mv "/var/spherical_unpack/BotDetect CAPTCHA Handler/" /var/spherical_captcha_php
+# Moves the CAPTCHA handler into the correct folder.
