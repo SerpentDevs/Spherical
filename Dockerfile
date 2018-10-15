@@ -43,6 +43,7 @@ RUN mv "/var/spherical_unpack/Default Certificate" /var/spherical_cert
 RUN mv "/var/spherical_unpack/Nginx Configs/main-server" /etc/nginx/sites-available/
 RUN mv /var/spherical_unpack/Website /var/spherical_website
 RUN ln -s /etc/nginx/sites-available/main-server /etc/nginx/sites-enabled/
+RUN rm /etc/nginx/sites-enabled/default
 RUN service nginx reload
 # Adds the main Nginx config.
 
