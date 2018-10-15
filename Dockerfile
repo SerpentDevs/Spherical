@@ -6,8 +6,11 @@ FROM python:3.6.6-stretch
 MAINTAINER jake@gealer.email
 # Sets me as a maintainer.
 
-RUN apt-get update && apt-get install -y nginx php7.0 unzip
+RUN apt-get update && apt-get install -y nginx php7.0-fpm unzip
 # Installs nginx/PHP 7.x/unzip.
+
+RUN echo "cgi.fix_pathinfo=0" > /etc/php7/fpm/php.ini
+# PHP fix because it is shit.
 
 WORKDIR /var/spherical_unpack
 RUN git clone git://github.com/SerpentDevs/Spherical /var/spherical_unpack
@@ -35,5 +38,8 @@ RUN service nginx reload
 
 RUN mv "/var/spherical_unpack/Default Certificate" /var/spherical_cert
 # Moves the self-signed certificate into the certificate folder to be changed during setup.
+
+RUN chmod 777 ./docker_entrypoint_script.sh
+# Grants the script execution rights.
 
 CMD ./docker_entrypoint_script.sh
