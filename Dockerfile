@@ -9,7 +9,8 @@ MAINTAINER jake@gealer.email
 RUN apt-get update && apt-get install -y nginx php7.0-fpm unzip
 # Installs nginx/PHP 7.x/unzip.
 
-RUN echo "cgi.fix_pathinfo=0" > /etc/php7/fpm/php.ini
+RUN echo "cgi.fix_pathinfo=0" > /etc/php/7.0/fpm/php.ini
+RUN service php7.0-fpm reload
 # PHP fix because it is shit.
 
 WORKDIR /var/spherical_unpack
