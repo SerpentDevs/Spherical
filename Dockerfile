@@ -6,8 +6,8 @@ FROM python:3.6.6-stretch
 MAINTAINER jake@gealer.email
 # Sets me as a maintainer.
 
-RUN apt-get update && apt-get install -y nginx php7.0-fpm unzip
-# Installs nginx/PHP 7.x/unzip.
+RUN apt-get update && apt-get install -y nginx php7.0-fpm php7.0-gd unzip libpng-dev libjpeg-dev freetype*
+# Installs all needed stuff.
 
 RUN echo "cgi.fix_pathinfo=0" > /etc/php/7.0/fpm/php.ini
 RUN service php7.0-fpm reload
