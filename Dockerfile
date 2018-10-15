@@ -40,6 +40,7 @@ RUN service nginx reload
 RUN mv "/var/spherical_unpack/Default Certificate" /var/spherical_cert
 # Moves the self-signed certificate into the certificate folder to be changed during setup.
 
+RUN mv "/var/spherical_unpack/Nginx Configs/main-server" /etc/nginx/sites-available/
 RUN mv /var/spherical_unpack/Website /var/spherical_website
 RUN ln -s /etc/nginx/sites-available/main-server /etc/nginx/sites-enabled/
 RUN service nginx reload
