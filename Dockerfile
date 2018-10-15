@@ -6,7 +6,7 @@ FROM python:3.6.6-stretch
 MAINTAINER jake@gealer.email
 # Sets me as a maintainer.
 
-RUN apt-get update && apt-get install -y nginx php7.0-fpm php7.0-gd unzip libpng-dev libjpeg-dev freetype*
+RUN apt-get update && apt-get install -y nginx php7.0-fpm php7.0-gd php7.0-dom php7.0-sqlite unzip libpng-dev libjpeg-dev freetype*
 # Installs all needed stuff.
 
 RUN echo "cgi.fix_pathinfo=0" > /etc/php/7.0/fpm/php.ini
