@@ -56,5 +56,9 @@ RUN python -m pip install -r requirements.txt
 RUN chmod 777 ./docker_entrypoint_script.sh
 # Grants the script execution rights.
 
+EXPOSE 80
+EXPOSE 443
+# Exposes the ports 80/443.
+
 CMD ./docker_entrypoint_script.sh
 # Runs the Bash script.
