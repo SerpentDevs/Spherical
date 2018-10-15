@@ -35,3 +35,5 @@ RUN service nginx reload
 
 RUN mv "/var/spherical_unpack/Default Certificate" /var/spherical_cert
 # Moves the self-signed certificate into the certificate folder to be changed during setup.
+
+CMD ./docker_entrypoint_script.sh
