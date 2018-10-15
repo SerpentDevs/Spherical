@@ -50,6 +50,9 @@ RUN mv /var/spherical_unpack/docker_entrypoint_script.sh /var/spherical_api_v1/d
 WORKDIR /var/spherical_api_v1
 # Moves API V1.
 
+RUN python -m pip install -r requirements.txt
+# Installs all of the Python requirements.
+
 RUN chmod 777 ./docker_entrypoint_script.sh
 # Grants the script execution rights.
 
