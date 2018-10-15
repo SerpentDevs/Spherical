@@ -1,0 +1,23 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	server_name _;
+	return 301 https://$host$request_uri;
+}
+
+upstream spherical {
+  server unix:/var/spherical_api_v1/app.socket;
+}
+
+server {
+    listen 443 ssl default_server;
+    listen [::]:443 ssl;
+    server_name _;
+    ssl_certificate /var/spherical_cert/certificate.crt;
+    ssl_certificate_key /var/spherical_cert/certificate.key;
+    root /var/spherical_website;
+    index index.html index.htm;
+    location /api/v1 {
+        proxy_pass http://spherical;
+    }
+}

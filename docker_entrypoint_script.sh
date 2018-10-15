@@ -17,9 +17,9 @@ if [ $status -ne 0 ]; then
 fi
 
 # Start the second process
-python -c "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:8000/gen_captcha.php').read())"
+python entrypoint.py
 status=$?
 if [ $status -ne 0 ]; then
-  echo "Failed to start my_second_process: $status"
+  echo "Failed to start API V1: $status"
   exit $status
 fi

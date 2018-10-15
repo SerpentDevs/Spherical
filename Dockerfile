@@ -40,7 +40,18 @@ RUN service nginx reload
 RUN mv "/var/spherical_unpack/Default Certificate" /var/spherical_cert
 # Moves the self-signed certificate into the certificate folder to be changed during setup.
 
+RUN mv /var/spherical_unpack/Website /var/spherical_website
+RUN ln -s /etc/nginx/sites-available/main-server /etc/nginx/sites-enabled/
+RUN service nginx reload
+# Adds the main Nginx config.
+
+RUN mv "/var/spherical_unpack/API V1" /var/spherical_api_v1 && cd /var/spherical_api_v1
+RUN mv /var/spherical_unpack/docker_entrypoint_script.sh /var/spherical_api_v1/docker_entrypoint_script.sh
+WORKDIR /var/spherical_api_v1
+# Moves API V1.
+
 RUN chmod 777 ./docker_entrypoint_script.sh
 # Grants the script execution rights.
 
 CMD ./docker_entrypoint_script.sh
+# Runs the Bash script.
